@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqfa Allowdya Diamytara</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="index.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <link href="index.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>CRUD FROM API</title>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <input class="form-control" id="mySearch" type="search" placeholder="Cari Data..">
+        <div class="p-2 bd-highlight">
+        </div>
+        <table class="table" id="table">
+    </div>
+    <nav class="navbar navbar-dark bg-mynav">
+        <divclass="container-fluid">
+            <aclass="navbar-brand" href="#">My App</a>
+                </div>
+    </nav>
+
+    <div class="container">
+        <div class="d-flex bd-highlight mb-3">
+            <div class="me-auto p-2 bd-highlight">
+                <h2>PANGAN</h2>
+            </div>
+            <div class="p-2 bd-highlight">
+                <button type="button" class="btn btn-secondary" onclick="showUserCreateBox()">Create</button>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Makanan Minuman</th>
+                        <th scope="col">Jenis</th>
+                        <th scope="col">Harga</th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="mytable">
+                    <tr>
+                        <th scope="row" colspan="5">Loading...</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <script>
+        //* SEARCH Data
+        $(document).ready(function() {
+            $("#mySearch").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#mytable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        })
+
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+    </script>
+
+    
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+
+</html>
